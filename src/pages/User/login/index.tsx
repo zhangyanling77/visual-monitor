@@ -1,16 +1,12 @@
 import {
-  AlipayCircleOutlined,
   LockOutlined,
   MobileOutlined,
-  TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
 } from '@ant-design/icons';
-import { Alert, Space, message, Tabs } from 'antd';
+import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
 import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
-import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
-import Footer from '@/components/Footer';
+import { useIntl, history, FormattedMessage, SelectLang, useModel } from 'umi';
 import { login, getFakeCaptcha } from '@/services/ant-design-pro/login';
 
 import styles from './index.less';
@@ -80,16 +76,6 @@ const Login: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.lang}>{SelectLang && <SelectLang />}</div>
       <div className={styles.content}>
-        <div className={styles.top}>
-          <div className={styles.header}>
-            <Link to="/">
-              <img alt="logo" className={styles.logo} src="/logo.svg" />
-              <span className={styles.title}>Ant Design</span>
-            </Link>
-          </div>
-          <div className={styles.desc}>Ant Design 是西湖区最具影响力的 Web 设计规范</div>
-        </div>
-
         <div className={styles.main}>
           <ProForm
             initialValues={{
@@ -208,7 +194,7 @@ const Login: React.FC = () => {
                       message: (
                         <FormattedMessage
                           id="pages.login.phoneNumber.required"
-                          defaultMessage="请输入手机号！"
+                          defaultMessage="请输入手机号"
                         />
                       ),
                     },
@@ -217,7 +203,7 @@ const Login: React.FC = () => {
                       message: (
                         <FormattedMessage
                           id="pages.login.phoneNumber.invalid"
-                          defaultMessage="手机号格式错误！"
+                          defaultMessage="手机号格式错误"
                         />
                       ),
                     },
@@ -254,7 +240,7 @@ const Login: React.FC = () => {
                       message: (
                         <FormattedMessage
                           id="pages.login.captcha.required"
-                          defaultMessage="请输入验证码！"
+                          defaultMessage="请输入验证码"
                         />
                       ),
                     },
@@ -288,15 +274,8 @@ const Login: React.FC = () => {
               </a>
             </div>
           </ProForm>
-          <Space className={styles.other}>
-            <FormattedMessage id="pages.login.loginWith" defaultMessage="其他登录方式" />
-            <AlipayCircleOutlined className={styles.icon} />
-            <TaobaoCircleOutlined className={styles.icon} />
-            <WeiboCircleOutlined className={styles.icon} />
-          </Space>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
